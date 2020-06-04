@@ -30,9 +30,14 @@ describe('Ongs', () => {
 
     });
 
-    it("deve poder realizar um login no sistema",()=>{
+    it.skip("deve poder realizar um login no sistema",()=>{
         cy.visit('http://localhost:3000')
         cy.get('input').type(Cypress.env('createdOngId'))
         cy.get('.button').click()
+    })
+
+    it("Realizar logout", () =>{
+        cy.login();
+        cy.get('button').click()
     })
 })
