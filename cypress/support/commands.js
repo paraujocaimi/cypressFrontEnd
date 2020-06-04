@@ -40,3 +40,43 @@ Cypress.Commands.add("createOng", ()=>{
         Cypress.env('createdOngId', response.body.id)
     })
 })
+
+Cypress.Commands.add("login", ()=>{
+    cy.visit('http://localhost:3000/profile', {
+        onBeforeLoad:(browser) => {
+            browser.localStorage.setItem('ongName', 'gatos')
+            browser.localStorage.setItem('ongId', Cypress.env('createdOngId'))
+        }
+    })
+})
+
+Cypress.Commands.add("createNewIncidents", ()=>{
+    cy.request({
+        method: 'Post',
+        url: "http://localhost:3333/incidents",
+        headers: {
+            'Authorization': `${Cypress.env('createdOngId')}`
+        },
+        body: {
+            description: "animal precisa de novo moradia",
+            title: "animal abandonado",
+            value: "200"    
+        }
+    }).then(response=>{
+        expect(response.body.id).is.not.null;
+        cy.log(response.body.id)
+        Cypress.env('incidetId', response.body.id)
+    })
+})
+
+Cypress.Commands.add("deleteIncident", ()=>{
+    cy.request({
+        method: 'Delete',
+        url: "http://localhost:3333/incidents/"+`${Cypress.env('incidetId')}`, 
+        headers: {
+            'Authorization': `${Cypress.env('createdOngId')}`
+        }
+    }).then(response=>{
+        expect(response.status).to.eq(204)
+    })
+})
