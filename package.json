@@ -4,7 +4,16 @@
   "description": "cypressFrontEnd",
   "main": "index.js",
   "scripts": {
-    "cy:open": "cypress open"
+    "cy:open": "cypress open",
+    "cy:headless": "npx cypress run --config video=false --env allure=true",
+    "cy:chrome": "npx cypress run --config video=false --env allure=true --browser chrome",
+    "cy:chrome:video": "npx cypress run --config video=true --env allure=true --browser chrome",
+    "allure:generate": "allure generate allure-results",
+    "allure:clear": "rm -r allure-results/ allure-report || true",
+    "allure:open": "allure open allure-report",
+    "test:headless": "npx npm-run-all allure:clear cy:headless allure:generate allure:open",
+    "test:chrome": "npx npm-run-all allure:clear cy:chrome allure:generate allure:open"
+
   },
   "repository": {
     "type": "git",
@@ -17,6 +26,7 @@
   },
   "homepage": "https://github.com/paraujocaimi/cypressFrontEnd#readme",
   "devDependencies": {
+    "@shelex/cypress-allure-plugin": "^1.6.2",
     "cypress": "^4.7.0"
   }
 }
