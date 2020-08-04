@@ -4,20 +4,19 @@
   "description": "cypressFrontEnd",
   "main": "index.js",
   "scripts": {
+    "cy:clear": "rm -rf ./logs/ ./allure-report ./allure-results ./cypress/videos",
+    "allure:generate:open": "allure generate allure-results & allure open allure-report",
     "cy:open": "cypress open",
-    "cy:headless": "npx cypress run --config video=false --env allure=true",
-    "cy:chrome": "npx cypress run --config video=false --env allure=true --browser chrome",
-    "cy:chrome:video": "npx cypress run --config video=true --env allure=true --browser chrome",
-    "allure:generate": "allure generate allure-results",
-    "allure:clear": "rm -r allure-results/ allure-report || true",
-    "allure:open": "allure open allure-report",
-    "test:headless": "npx npm-run-all allure:clear cy:headless allure:generate allure:open",
-    "test:chrome": "npx npm-run-all allure:clear cy:chrome allure:generate allure:open"
-
+    "cy:headless": "npx cypress run cy:clear --config video=false --env allure=true",
+    "cy:headless:video": "npx cypress run cy:clear --config video=true --env allure=true",    
+    "cy:chrome": "npx cypress run cy:clear --config video=false --env  allure=true --browser chrome",
+    "cy:chrome:video": "npx cypress run cy:clear --config video=true --env allure=true --browser chrome",
+    "test:chrome:report": "npx cypress run cy:clear cy:chrome:video allure:generate:open",
+    "test:headless:report": "npx cypress run cy:clear cy:headless allure:generate:open"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/paraujocaimi/cypressFrontEnd.git"
+    "url": "git+https://github.com/paraujocaimi/cypressFrontEnd"
   },
   "author": "",
   "license": "ISC",
@@ -26,7 +25,9 @@
   },
   "homepage": "https://github.com/paraujocaimi/cypressFrontEnd#readme",
   "devDependencies": {
-    "@shelex/cypress-allure-plugin": "^1.6.2",
-    "cypress": "^4.7.0"
+    "@shelex/cypress-allure-plugin": "^1.8.0",
+    "allure": "0.0.0",
+    "cypress": "^4.7.0",
+    "cypress-file-upload": "^4.0.7"
   }
 }

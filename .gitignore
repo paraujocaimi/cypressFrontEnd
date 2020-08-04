@@ -2,6 +2,7 @@ node_modules/**/*
 npm-debug.*
 allure-report/**
 allure-results/**
+package-lock.json
 
 # macOS
 .DS_Store

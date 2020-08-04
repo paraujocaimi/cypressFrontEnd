@@ -23,6 +23,7 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+import 'cypress-file-upload'
 
 Cypress.Commands.add("createOng", ()=>{
     cy.request({
@@ -79,4 +80,8 @@ Cypress.Commands.add("deleteIncident", ()=>{
     }).then(response=>{
         expect(response.status).to.eq(204)
     })
+})
+
+Cypress.Commands.add("visitUploadArquivos", ()=>{
+    cy.visit('https://dsheiko.github.io/react-html5-form/')
 })
