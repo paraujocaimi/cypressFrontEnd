@@ -1,0 +1,24 @@
+{
+  "name": "cypressFrontEnd",
+  "version": "1.0.0",
+  "description": "cypressFrontEnd",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paraujocaimi/cypressFrontEnd.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/paraujocaimi/cypressFrontEnd/issues"
+  },
+  "homepage": "https://github.com/paraujocaimi/cypressFrontEnd#readme",
+  "devDependencies": {
+    "@applitools/eyes-cypress": "^3.12.5",
+    "cypress": "^4.12.0"
+  }
+}
