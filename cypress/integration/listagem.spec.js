@@ -23,7 +23,7 @@ context('Listagem', () => {
             method: 'GET', 
             url: "**//api/1/databases/userdetails/collections/newtable?**",
             status: 200,
-            response: 'fx:webtable-get-unico'
+            response: 'fx:webtable-get-onlyOne'
         }).as('GetNewTable')
 
         cy.visit('WebTable.html')
