@@ -22,14 +22,6 @@ require('@shelex/cypress-allure-plugin');
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
-
-// teste para o bet hero
-// beforeEach(()=>{
-//     cy.server()
-//     cy.createOng();
-// })
-
-// teste para upload de arquivo
-beforeEach(()=>{
-    cy.visitUploadArquivos()
+Cypress.on('uncaught:exception', (err, runnable)=>{
+    return false
 })
