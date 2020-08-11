@@ -23,13 +23,15 @@
         ├── index.js
         ├── commans.js  
 ├── .gitignore
+├── .npmrc
 ├── cypress.json
 ├── node_modules
 ├── README.md  
 ```
 
 - **Plugins**: Declaração de todos os plugins que serão utilizados dentro do projeto
-- **support**: `index.js` neste arquivo você irá adiconar tudo que precisa ser executado antes do teste iniciar. No arquivo `commands.js` você pode adicionar testes que precisam ser executadas em mais de um ponto na sua aplicação, criando assim um tipo de "alias" que pode ser utilizado em várias partes do projeto, não sendo necessário duplicar código. 
+- **support**: `index.js` neste arquivo você irá adiconar tudo que precisa ser executado antes do teste iniciar. No arquivo `commands.js` você pode adicionar testes que precisam ser executadas em mais de um ponto na sua aplicação, criando assim um tipo de "alias" que pode ser utilizado em várias partes do projeto, não sendo necessário duplicar código.
+- File `.npmrc` : criado para problemas de download de dependencias. 
 
 <h2>Configuração de ambiente</h2>
 
@@ -46,18 +48,6 @@
 
 ```
     npm install 
-```
-
-Se por aparecer o **erro**: 
-
-```
-    npm ERR! Unable to authenticate, need: Basic realm="Artifactory Realm"
-```
-
-adicionar ao final do pacote o seguinte comando instalar **--registry https://registry.npmjs.org** como no exemplo abaixo  
-
-```
-    npm install --registry https://registry.npmjs.org
 ```
 
 <h3>Servidor para realizar os testes</h3> 
