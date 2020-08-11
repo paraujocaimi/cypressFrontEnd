@@ -1,21 +1,11 @@
+import {Given, When, And, Then} from "cypress-cucumber-preprocessor/steps"
+
 /// <reference types="cypress"/>
 
 // Load Chance
 var Chance = require('chance');
 // Instantiate Chance so it can be used
 var chance = new Chance();
-
-Given(/^que acesso o site$/, () => {
-    //Rotas 
-    cy.server()
-    cy.route('POST', "**//api/1/databases/userdetails/collections/newtable?**").as('PostNewTable')
-    cy.route('POST', "**//api/1/databases/userdetails/collections/usertable?**").as('PostUserTable')
-    cy.route('GET', "**//api/1/databases/userdetails/collections/newtable?**").as('GetNewTable')
-
-    // baseUrl + Register.html
-    cy.visit('Register.html')
-})
-
 
 When(/^informar meus dados$/, () => {
 	cy.get('input[placeholder="First Name"]').type(chance.first())
@@ -41,10 +31,6 @@ When(/^informar meus dados$/, () => {
 
     // uppload 
     cy.get('input#imagesrc').attachFile('image.png')    
-})
-
-When(/^salvar$/, () => {
-    cy.get('button#submitbtn').click()
 })
 
 Then(/^devo ser cadastrado com sucesso$/, () => {

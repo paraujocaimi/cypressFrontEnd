@@ -12,33 +12,12 @@
 // This function is called when a project is opened or re-opened (e.g. due to
 // the project's config changing)
 // cucumber 
-const cucumber  = require('cypress-cucumber-preprocessor').default
+const cucumber = require('cypress-cucumber-preprocessor').default
+
 /**
  * @type {Cypress.PluginConfig}
  */
-module.exports = (on, config) => {
-    // `on` is used to hook into various events Cypress emits
-    // `config` is the resolved Cypress config
-    on('file:preprocessor',cucumber())
-  }
-  
 
-  //allure report
-const allureWriter = require('@shelex/cypress-allure-plugin/writer');
- 
 module.exports = (on, config) => {
-    allureWriter(on, config);
-    return config;
-};
- 
-// if you have webpack or other ts preprocessors
-// just add another exports section with allure writer:
- 
-module.exports = (on) => {
-    on('file:preprocessor', webpackPreprocessor);
-};
- 
-module.exports = (on, config) => {
-    allureWriter(on, config);
-};
-
+    on('file:preprocessor', cucumber())
+}
