@@ -6,7 +6,8 @@
   "scripts": {
     "cy:clear": "rm -rf ./logs/ ./allure-report ./allure-results ./cypress/videos",
     "allure:generate:open": "allure generate allure-results & allure open allure-report",
-    "cy:open": "cypress open",
+    "cy:open": "npx cypress open",
+    "cy:open:cucumber": "npx cypress open --config-file cypress-cucumber.json",
     "cy:headless": "npx cypress run cy:clear --config video=false --env allure=true",
     "cy:headless:video": "npx cypress run cy:clear --config video=true --env allure=true",
     "cy:chrome": "npx cypress run cy:clear --config video=false --env  allure=true --browser chrome",
