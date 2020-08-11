@@ -5,10 +5,7 @@
 
 <h2>Frameworks utilizados nos testes</h2>
 
-- ChaiJs: para validações
-- Mocha: para escrita dos cenários
-- Allure Report: report dos testes executados
-- Cypress File Upload: fazer upload de arquivos durante os testes
+- Chance: utilizado para a utilização dos mocas
 
 <h2>Estrutura do Projeto</h2>
 
@@ -35,29 +32,14 @@
 
 <h3> Dependencias de desenvolvimento</h3>
 
-- allure: http://allure.qatools.ru/#
+- Chance.js: https://chancejs.com/
 
-- cypress-allure-plugin: https://www.npmjs.com/package/@shelex/cypress-allure-plugin 
-
-- Cypress File upload: https://www.npmjs.com/package/cypress-file-upload 
-
+- Cypress File upload: https://www.npmjs.com/package/cypress-file-upload
 
 <h3>Instalar as dependencias</h3>
 
 ```
     npm install 
-```
-
-Se por aparecer o **erro**: 
-
-```
-    npm ERR! Unable to authenticate, need: Basic realm="Artifactory Realm"
-```
-
-adicionar ao final do pacote o seguinte comando instalar **--registry https://registry.npmjs.org** como no exemplo abaixo  
-
-```
-    npm install --registry https://registry.npmjs.org
 ```
 
 <h3>Servidor para realizar os testes</h3> 

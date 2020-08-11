@@ -8,7 +8,7 @@
     "allure:generate:open": "allure generate allure-results & allure open allure-report",
     "cy:open": "cypress open",
     "cy:headless": "npx cypress run cy:clear --config video=false --env allure=true",
-    "cy:headless:video": "npx cypress run cy:clear --config video=true --env allure=true",    
+    "cy:headless:video": "npx cypress run cy:clear --config video=true --env allure=true",
     "cy:chrome": "npx cypress run cy:clear --config video=false --env  allure=true --browser chrome",
     "cy:chrome:video": "npx cypress run cy:clear --config video=true --env allure=true --browser chrome",
     "test:chrome:report": "npx cypress run cy:clear cy:chrome:video allure:generate:open",
@@ -27,6 +27,7 @@
   "devDependencies": {
     "@shelex/cypress-allure-plugin": "^1.8.0",
     "allure": "0.0.0",
+    "chance": "^1.1.6",
     "cypress": "^4.7.0",
     "cypress-file-upload": "^4.0.7"
   }

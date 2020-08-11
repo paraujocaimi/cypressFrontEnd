@@ -1,13 +1,25 @@
 /// <reference types="cypress"/>
 
+// Load Chance
+var Chance = require('chance');
+// Instantiate Chance so it can be used
+var chance = new Chance();
+
 context('Cadastro', () => {
     it('Cadastro de usuário no site', () => {
+
+        //Rotas 
+        cy.server()
+        cy.route('POST', "**//api/1/databases/userdetails/collections/newtable?**").as('PostNewTable')
+        cy.route('POST', "**//api/1/databases/userdetails/collections/usertable?**").as('PostUserTable')
+        cy.route('GET', "**//api/1/databases/userdetails/collections/newtable?**").as('GetNewTable')
+
         // baseUrl + Register.html
         cy.visit('Register.html')
-        cy.get('input[placeholder="First Name"]').type('Aluno')
-        cy.get('input[placeholder="Last Name"]').type('Agilizei')
-        cy.get('input[ng-model="EmailAdress"]').type('aluno@agilizei.com.br')
-        cy.get('input[ng-model="Phone"]').type('1234567890')
+        cy.get('input[placeholder="First Name"]').type(chance.first())
+        cy.get('input[placeholder="Last Name"]').type(chance.last())
+        cy.get('input[ng-model="EmailAdress"]').type(chance.email())
+        cy.get('input[ng-model="Phone"]').type(chance.phone({formatted: false}))
 
         //checkBox e radioBottoon
         cy.get('input[value="FeMale"]').check()
@@ -25,9 +37,32 @@ context('Cadastro', () => {
         cy.get('input#firstpassword').type('Agilizei@2020')
         cy.get('input#secondpassword').type('Agilizei@2020')
 
+        // uppload 
+        cy.get('input#imagesrc').attachFile('image.png')        
         //button
         cy.get('button#submitbtn').click()
 
+        //validando retorno do XHR da api 
+        cy.wait('@PostNewTable').then((resPostNewTable) => {
+            cy.log(resPostNewTable.status)
+            expect(resPostNewTable.status).to.be.equal(200);
+            assert.equal( resPostNewTable.status, 200, "Status retornando deve ser 200");
+        })
+
+        cy.wait('@PostUserTable').then((resPostUserTabel) => {
+            cy.log(resPostUserTabel.status)
+            expect(resPostUserTabel.status).to.be.equal(200);
+            assert.equal( resPostUserTabel.status, 200, "Status retornando deve ser 200");
+        })
+
+        cy.wait('@GetNewTable').then((resGetNewTable) => {
+            cy.log(resGetNewTable.status)
+            expect(resGetNewTable.status).to.be.equal(200);
+            assert.equal( resGetNewTable.status, 200, "Status retornando deve ser 200");
+        })
+
+        //validando se esta na pagina correta
+        cy.url().should('contain', 'WebTable.html')
 
     });
 });
