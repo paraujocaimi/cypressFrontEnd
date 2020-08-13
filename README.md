@@ -1,6 +1,7 @@
 <h1 align="center">Cypress para Web</h1>
 <p align="center">Projeto criado para estudar a aplicabilidade do cypress para testes web.</p>
 
+
 --------------------------
 
 <h2>Frameworks utilizados nos testes</h2>
