@@ -76,13 +76,6 @@
     npm install 
 ```
 
-<h3>Servidor para realizar os testes</h3> 
-
-<p>Baixe o projeto no Github:</p>
-
-https://github.com/samlucax/youtube-cypress 
-
-
 <h3>Executar os testes</h3>
 
 <h4> Testes sem Cucumber</h4>
