@@ -1,8 +1,15 @@
 node_modules/**/*
 npm-debug.*
-allure-report/**
-allure-results/**
-package-lock.json
 
 # macOS
 .DS_Store
+
+#reports
+allure-report/**
+allure-results/**
+mochawesome-report
+cypress/reports/cucumber-json/**
+cypress/reports/report-html/**
+
+#cypress
+cypress/videos

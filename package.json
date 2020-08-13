@@ -4,17 +4,14 @@
   "description": "cypressFrontEnd",
   "main": "index.js",
   "scripts": {
-    "cy:clear": "rm -rf ./logs/ ./allure-report ./allure-results ./cypress/videos",
-    "allure:generate:open": "allure generate allure-results & allure open allure-report",
     "cy:open": "npx cypress open",
+    "cy:run": "npx cypress run --config video=false",
     "cy:open:cucumber": "npx cypress open --config-file cypress-cucumber.json",
     "cy:run:cucumber": "npx cypress run --config-file cypress-cucumber.json --spec cypress/integration/All.features",
-    "cy:headless": "npx cypress run cy:clear --config video=false --env allure=true",
-    "cy:headless:video": "npx cypress run cy:clear --config video=true --env allure=true",
-    "cy:chrome": "npx cypress run cy:clear --config video=false --env  allure=true --browser chrome",
-    "cy:chrome:video": "npx cypress run cy:clear --config video=true --env allure=true --browser chrome",
-    "test:chrome:report": "npx cypress run cy:clear cy:chrome:video allure:generate:open",
-    "test:headless:report": "npx cypress run cy:clear cy:headless allure:generate:open"
+    "report:merge": "mochawesome-merge > full_report.json",
+    "report:mocha": "marge full_report.json",
+    "reporter:clean": "rm -rf mochawesome-report full_report.json cypress/videos/** cypress/reports/cucumber-json/** cypress/reports/report-html/**",
+    "reporter:cucumber": "node cypress/reports/reporter.js"
   },
   "repository": {
     "type": "git",
@@ -27,14 +24,27 @@
   },
   "homepage": "https://github.com/paraujocaimi/cypressFrontEnd#readme",
   "devDependencies": {
-    "@shelex/cypress-allure-plugin": "^1.8.0",
-    "allure": "0.0.0",
     "chance": "^1.1.6",
+    "cucumber-html-reporter": "^5.2.0",
     "cypress": "^4.7.0",
     "cypress-cucumber-preprocessor": "^2.5.4",
-    "cypress-file-upload": "^4.0.7"
+    "cypress-file-upload": "^4.0.7",
+    "cypress-multi-reporters": "^1.4.0",
+    "mocha": "^8.1.1",
+    "mochawesome": "^6.1.1",
+    "mochawesome-merge": "^4.1.0",
+    "mochawesome-report-generator": "^5.1.0"
   },
   "cypress-cucumber-preprocessor": {
-    "nonGlobalStepDefinitions": true
+    "nonGlobalStepDefinitions": true,
+    "cucumberJson": {
+      "generate": true,
+      "outputFolder": "cypress/reports/cucumber-json",
+      "filPrefix": "",
+      "fileSuffix": ".cucumber"
+    }
+  },
+  "dependencies": {
+    "@shelex/cypress-allure-plugin": "^1.8.0"
   }
 }

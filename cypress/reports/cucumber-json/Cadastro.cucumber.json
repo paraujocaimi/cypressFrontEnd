@@ -1,0 +1,64 @@
+[
+  {
+    "description": "    Como usuário, desejo realizar um Cadastro\n    Para que possa acessar o sistema",
+    "keyword": "Funcionalidade",
+    "name": "Cadastro",
+    "line": 2,
+    "id": "cadastro",
+    "tags": [],
+    "uri": "Cadastro.feature",
+    "elements": [
+      {
+        "id": "cadastro;cadastro-de-novo-usuário",
+        "keyword": "Scenario",
+        "line": 7,
+        "name": "Cadastro de novo usuário",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 8,
+            "name": "que acesso o site",
+            "result": {
+              "status": "passed",
+              "duration": 47314000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Quando ",
+            "line": 9,
+            "name": "informar meus dados",
+            "result": {
+              "status": "passed",
+              "duration": 14238000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 10,
+            "name": "salvar",
+            "result": {
+              "status": "passed",
+              "duration": 637000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Entao ",
+            "line": 11,
+            "name": "devo ser cadastrado com sucesso",
+            "result": {
+              "status": "failed",
+              "duration": 64330000000,
+              "error_message": "CypressError: Timed out after waiting `60000ms` for your remote page to load.\n\nYour page did not fire its `load` event within `60000ms`.\n\nYou can try increasing the `pageLoadTimeout` value in `cypress-cucumber.json` to wait longer.\n\nBrowsers will not fire the `load` event until all stylesheets and scripts are done downloading.\n\nWhen this `load` event occurs, Cypress will continue running commands.\n    at timedOutWaitingForPageLoad (http://demo.automationtesting.in/__cypress/runner/cypress_runner.js:155998:13)\n    at http://demo.automationtesting.in/__cypress/runner/cypress_runner.js:156257:14\n    at tryCatcher (http://demo.automationtesting.in/__cypress/runner/cypress_runner.js:9956:23)\n    at http://demo.automationtesting.in/__cypress/runner/cypress_runner.js:5078:41\n    at tryCatcher (http://demo.automationtesting.in/__cypress/runner/cypress_runner.js:9956:23)\n    at Promise._settlePromiseFromHandler (http://demo.automationtesting.in/__cypress/runner/cypress_runner.js:7891:31)\n    at Promise._settlePromise (http://demo.automationtesting.in/__cypress/runner/cypress_runner.js:7948:18)\n    at Promise._settlePromise0 (http://demo.automationtesting.in/__cypress/runner/cypress_runner.js:7993:10)\n    at Promise._settlePromises (http://demo.automationtesting.in/__cypress/runner/cypress_runner.js:8069:18)\n    at _drainQueueStep (http://demo.automationtesting.in/__cypress/runner/cypress_runner.js:4663:12)\n    at _drainQueue (http://demo.automationtesting.in/__cypress/runner/cypress_runner.js:4656:9)\n    at Async.../../node_modules/bluebird/js/release/async.js.Async._drainQueues (http://demo.automationtesting.in/__cypress/runner/cypress_runner.js:4672:5)\n    at Async.drainQueues (http://demo.automationtesting.in/__cypress/runner/cypress_runner.js:4542:14)\nFrom Your Spec Code:\n    at Context.eval (http://demo.automationtesting.in/__cypress/tests?p=cypress\\integration\\All.features:115:6)\n    at Context.resolveAndRunStepDefinition (http://demo.automationtesting.in/__cypress/tests?p=cypress\\integration\\All.features:18376:9)\n    at Context.eval (http://demo.automationtesting.in/__cypress/tests?p=cypress\\integration\\All.features:17718:35)\nFrom Your Spec Code:\n    at Context.eval (http://demo.automationtesting.in/__cypress/tests?p=cypress\\integration\\All.features:115:6)\n    at Context.resolveAndRunStepDefinition (http://demo.automationtesting.in/__cypress/tests?p=cypress\\integration\\All.features:18376:9)\n    at Context.eval (http://demo.automationtesting.in/__cypress/tests?p=cypress\\integration\\All.features:17718:35)"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

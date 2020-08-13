@@ -11,6 +11,18 @@
 
 - Cypress Cucumber Preprocessor: vincular cucumber ao projeto
 
+- Mocha: lib para executar os testes
+
+- Mochawesome: gerar relatórios no formato nativo do cypress
+
+- Mochawesome-report-generator: gerar relatórios com base em um único arquivo json
+
+- Mochawesome-merge: unificar o resultado de todos os tests em apenas um arquivo .json para assim alimentar o gerador de report 
+
+- Cypress multi reporters: gerar vários tipos de relatório final de execução. 
+
+- Cucumber Html Reporter: gera arquivo .json com os reports dos testes executados. 
+
 <h2> Extensões VS Code</h2>
 
 - Cucumber (Gherkin) Full Support
@@ -53,6 +65,10 @@
 
 - Cypress Cucumber Preprocessor: https://www.npmjs.com/package/cypress-cucumber-preprocessor/v/1.12.0 
 
+- Mocha awesome: https://www.npmjs.com/package/mochawesome
+
+- Cucumber HTML Reporter: https://www.npmjs.com/package/cucumber-html-reporter 
+
 <h3>Instalar as dependencias</h3>
 
 ```
@@ -88,9 +104,19 @@ https://github.com/samlucax/youtube-cypress
 - Para abrir o cypress rodar teste com o script Cucumber 
 
 ```
-npx cypress open --config-file cypress-cucumber.json
+    npm run cy:open:cucumber
 ```
 
+- Rodar todos os testes 
+```
+    npm run cy:run:cucumber
+``` 
+
+- Para gerar os relatórios: 
+
+```
+    npm run reporter:cucumber
+```
 
 
 
