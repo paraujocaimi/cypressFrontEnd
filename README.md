@@ -113,5 +113,9 @@
 ```
 
 
+<h2>GitHub Pages</h2>
 
+Acompanhe o relatório gerado, pelo link abaixo. 
+
+https://paraujocaimi.github.io/cypressFrontEnd/
 
