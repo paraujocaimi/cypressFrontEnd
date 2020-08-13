@@ -6,9 +6,9 @@ name: CI
 # events but only for the master branch
 on:
   push:
-    branches: [semanaAgilizei]
+    branches: [ master, semanaAgilizei ]
   pull_request:
-    branches: [semanaAgilizei]
+    branches: [ master, semanaAgilizei ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -17,29 +17,34 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     
-    strategy: 
+    strategy:
       matrix:
         node-version: [12.x]
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    # Checkout do codigo do projeto
     - uses: actions/checkout@v2
-
+     
+    # Setup do Node.JS 
     - name: Setup Node.js environment
-      uses: actions/setup-node@v1.4.3
+      uses: actions/setup-node@v2.1.1
       with:
-        node-version: ${{matrix.node-version}}
-        
+        node-version: ${{ matrix.node-version }} 
+    
+    # instalando as dependencias
     - run: npm install
+    
+    # executar os testes usando o cucumber
     - run: npm run cy:run:cucumber
+    
+    # gerar o relatorio em html
     - run: npm run report:cucumber
     
-    # relatorio publicado no github pages 
+    # publicar relatorio em html
     - name: Deploy to GithubPages
       uses: JamesIves/github-pages-deploy-action@3.5.9
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         BRANCH: gh-pages
-        FOLDER: cypress/reports/report-html/
-        
+        FOLDER: cypress/reports/report-html  
